@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block services %}
+<section>
+    <h1 class="text-center">Our Services</h1>
+    <div class="container-fluid">
+        <div class="row p-2 g-2">
+            {% for s in servicesData %}
+            <div class="col-sm-3">
+                <div class="card shadow-sm" style="height: 420px;">
+                    <div class="card-header"><img src="{{s.thumbnail.url}}" height="140px" alt="" class="card-img"></div>
+                    <div class="card-body">
+                        <h3>{{s.serviceName}}</h3>
+                        <hr>
+                        <p>{{s.about | slice:100 }}</p>
+                    </div>
+                    <div class="card-footer">{{s.date}}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock services %}
